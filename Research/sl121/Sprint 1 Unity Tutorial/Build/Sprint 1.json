@@ -1,0 +1,16 @@
+{
+"companyName": "DefaultCompany",
+"productName": "New Unity Project",
+"productVersion": "1.1.2-preview.1",
+"dataUrl": "Sprint 1.data.unityweb",
+"wasmCodeUrl": "Sprint 1.wasm.code.unityweb",
+"wasmFrameworkUrl": "Sprint 1.wasm.framework.unityweb",
+"graphicsAPI": ["WebGL 1.0"],
+"webglContextAttributes": {"preserveDrawingBuffer": false},
+"splashScreenStyle": "Dark",
+"backgroundColor": "#231F20",
+"cacheControl": {"default": "must-revalidate"},
+"developmentBuild": false,
+"multithreading": false,
+"unityVersion": "2019.4.20f1c1"
+}
