@@ -1,0 +1,30 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class NewBehaviourScript : MonoBehaviour
+{
+    /** @managers a list of managers/employees */
+    private Manager[] managers;
+
+    /** @costs costs per time increment*/
+    private double costs;
+
+    /** @income income per time increment*/
+    private double income;
+
+    /** @level Shop level*/
+    private int level;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+}
