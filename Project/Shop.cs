@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -26,5 +26,45 @@ public class NewBehaviourScript : MonoBehaviour
     void Update()
     {
         
+    }
+
+    void SetManagers(Manager[] m)
+    {
+        managers = m;
+    }
+
+    Manager[] GetManagers()
+    {
+        return managers;
+    }
+
+    void SetCosts(double c)
+    {
+        costs = c;
+    }
+
+    double GetCosts()
+    {
+        return costs;
+    }
+
+    void SetIncome(double i)
+    {
+        income = i;
+    }
+
+    double GetIncome()
+    {
+        return income;
+    }
+
+    void SetLevel(int l)
+    {
+        level = l;
+    }
+
+    int GetLevel()
+    {
+        return level;
     }
 }
