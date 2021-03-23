@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NewBehaviourScript : MonoBehaviour
+public class Shop : MonoBehaviour
 {
     /** @managers a list of managers/employees */
     private Manager[] managers;
@@ -26,6 +26,11 @@ public class NewBehaviourScript : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public Shop()
+    {
+        level = 1;
     }
 
     void SetManagers(Manager[] m)
