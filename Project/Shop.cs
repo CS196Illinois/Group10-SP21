@@ -16,16 +16,40 @@ public class Shop : MonoBehaviour
     /** @level Shop level*/
     private int level;
 
+    /** @player the player, created when a shop is bought by the player, used to upadate the status*/
+    public GameClass player;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        //set to be 6-10 seconds, should also be affected by the managers and area in future dev
+        randomUpdateTime = Random.Range(6, 10);
     }
+
+    /** @randomUpdateTime a random amount of time to simulate the time between consumptions*/
+    private float randomUpdateTime;
 
     // Update is called once per frame
     void Update()
     {
+
+        //countdown
+        if (randomUpdateTime > 0)
+        {
+            randomUpdateTime -= Time.deltaTime;
+        } else
+        {
+            UpdateMoney();
+            //set to be 6-10 seconds, should also be affected by the managers and area in future dev
+            randomUpdateTime = Random.Range(6, 10);
+        }
         
+    }
+
+    // return the money to update. Now the amount is based only on costs and level. Should also be affected by the managers.
+    void UpdateMoney()
+    {
+        player.money += costs + costs / -1000 * Random.Range(-.1f, level);
     }
 
     public Shop()
