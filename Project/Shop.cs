@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Shop : MonoBehaviour
 {
     /** @managers a list of managers/employees */
@@ -56,6 +57,17 @@ public class Shop : MonoBehaviour
     {
         level = 1;
     }
+
+
+    //Create a new manager and put it into the Manager list. 
+    //The managerCost parameter will based on the level of manager the user decide to hire
+    void hireManagers(int managerCost)
+    {
+        player.money -= managerCost;
+        Manager manager = new Manager();
+        managers.Add(manager);
+    }
+
 
     void SetManagers(Manager[] m)
     {
