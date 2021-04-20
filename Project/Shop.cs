@@ -44,7 +44,7 @@ public class Shop : MonoBehaviour
             //set to be 6-10 seconds, should also be affected by the managers and area in future dev
             randomUpdateTime = Random.Range(6, 10);
         }
-        
+
     }
 
     // return the money to update. Now the amount is based only on costs and level. Should also be affected by the managers.
@@ -57,15 +57,33 @@ public class Shop : MonoBehaviour
     {
         level = 1;
     }
-
+    //increase the shop level
+    void updateShop(int updateCost)
+    {
+        if (player.money >= updateCost)
+        {
+            level++;
+            player.money -= updateCost;
+        } else
+        {
+            throw new System.Exception;
+        }
+    }
+   
 
     //Create a new manager and put it into the Manager list. 
     //The managerCost parameter will based on the level of manager the user decide to hire
-    void hireManagers(int managerCost)
+    void hireManagers(int managerCost, int shopLevel)
     {
-        player.money -= managerCost;
-        Manager manager = new Manager();
-        managers.Add(manager);
+        if (player.money >= managerCost && level == shopLevel)
+        {
+            player.money -= managerCost;
+            Manager manager = new Manager();
+            managers.Add(manager);
+        } else
+        {
+            throw new System.Exception;
+        }
     }
 
 
