@@ -57,6 +57,7 @@ public class Shop : MonoBehaviour
     {
         level = 1;
     }
+
     //increase the shop level
     void updateShop(int updateCost)
     {
