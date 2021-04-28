@@ -8,14 +8,16 @@ public class Manager : MonoBehaviour
     private sex;
     private string level;
     private int cost;
+    private float initialIncome;
     
 
-    public Manager(string setLevel, int setCost, string setName, string setSex)
+    public Manager(string setLevel, int setCost, string setName, string setSex, float setIncome)
     {
         level = setLevel;
         cost = setCost;
         name = setName;
         sex = setSex;
+        initialIncome = setIncome;
     }
     public Manager()
     {
@@ -35,7 +37,7 @@ public class Manager : MonoBehaviour
     {
         return level;
     }
-    public int getCost()
+    public float getCost()
     {
         return cost;
     }
@@ -47,6 +49,7 @@ public class Manager : MonoBehaviour
     {
         return sex;
     }
+  
 
 
     // Start is called before the first frame update

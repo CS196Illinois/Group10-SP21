@@ -8,6 +8,8 @@ public class Shop : MonoBehaviour
     /** @managers a list of managers/employees */
     private Manager[] managers;
 
+    private double profits;
+
     /** @costs costs per time increment*/
     private double costs;
 
@@ -50,14 +52,22 @@ public class Shop : MonoBehaviour
     // return the money to update. Now the amount is based only on costs and level. Should also be affected by the managers.
     void UpdateMoney()
     {
-        player.money += costs + costs / -1000 * Random.Range(-.1f, level);
+        float managerIncome = 0.0;
+        float managerCost = 0.0;
+        for (int i = 0; i < managers.Length; i ++)
+        {
+            managerIncome += managers[i].getLevel() * managers[i].initialIncome * 100;
+            managerCost += managers[i].getLevel() * managers[i].cost * 50;
+        }
+        income += managerIncome;
+        costs += managerCost; 
+        profits += income - costs;
     }
 
     public Shop()
     {
         level = 1;
     }
-
     //increase the shop level
     void updateShop(int updateCost)
     {
