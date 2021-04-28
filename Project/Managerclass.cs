@@ -22,8 +22,8 @@ public class Manager : MonoBehaviour
     public Manager()
     {
         level = 1;
-        cost = 200;
-        initialIncome = 20
+        cost = 2;
+        initialIncome = 5;
     }
 
     public void setLevel(string resetLevel)

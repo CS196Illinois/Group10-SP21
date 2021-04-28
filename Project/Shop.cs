@@ -60,10 +60,10 @@ public class Shop : MonoBehaviour
         player.money += income + managerIncome - costs - managerCost;
     }
     //create a default shop of level 1
-    public Shop()
+    public Shop(GameClass newshop)
     {
         level = 1;
-        Gameclass player = new Gameclass()
+        player = newshop;
     }
     //increase the shop level
     void updateShop(int updateCost)
