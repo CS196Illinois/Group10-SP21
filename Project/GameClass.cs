@@ -5,11 +5,12 @@ public class GameClass{
     float income; 
     Shop[] shops;
 
-    public GameClass() {}
+    public GameClass() {
+        money = 1000;
+    }
 
-    public GameClass(float setMoney, float setCosts, float setIncome, Shop[] setArrayShop) {
+    public GameClass(float setMoney, float setIncome, Shop[] setArrayShop) {
         money = setMoney; 
-        costs = setCosts;
         income = setIncome;
         shops = setArrayShop;
     } 
@@ -58,7 +59,7 @@ public class GameClass{
         if (money >= shopCost)
         {
             money -= shopCost;
-            Shop newShop = new Shop();
+            Shop newShop = new Shop(this);
             shops.add(newShop);
         } else
         {

@@ -6,12 +6,12 @@ public class Manager : MonoBehaviour
 {
     private string name;
     private sex;
-    private string level;
+    private int level;
     private int cost;
     private float initialIncome;
     
 
-    public Manager(string setLevel, int setCost, string setName, string setSex, float setIncome)
+    public Manager(int setLevel, int setCost, string setName, string setSex, float setIncome)
     {
         level = setLevel;
         cost = setCost;
@@ -21,8 +21,9 @@ public class Manager : MonoBehaviour
     }
     public Manager()
     {
-        level = "rookie";
-        cost = 0;
+        level = 1;
+        cost = 200;
+        initialIncome = 20
     }
 
     public void setLevel(string resetLevel)

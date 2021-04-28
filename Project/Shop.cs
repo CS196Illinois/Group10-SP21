@@ -8,8 +8,6 @@ public class Shop : MonoBehaviour
     /** @managers a list of managers/employees */
     private Manager[] managers;
 
-    private double profits;
-
     /** @costs costs per time increment*/
     private double costs;
 
@@ -49,7 +47,7 @@ public class Shop : MonoBehaviour
 
     }
 
-    // return the money to update. Now the amount is based only on costs and level. Should also be affected by the managers.
+    // return the money to update. The moeny is based on the income & cost of shop itself and the manager's ability
     void UpdateMoney()
     {
         float managerIncome = 0.0;
@@ -58,15 +56,14 @@ public class Shop : MonoBehaviour
         {
             managerIncome += managers[i].getLevel() * managers[i].initialIncome * 100;
             managerCost += managers[i].getLevel() * managers[i].cost * 50;
-        }
-        income += managerIncome;
-        costs += managerCost; 
-        profits += income - costs;
+        } 
+        player.money += income + managerIncome - costs - managerCost;
     }
-
+    //create a default shop of level 1
     public Shop()
     {
         level = 1;
+        Gameclass player = new Gameclass()
     }
     //increase the shop level
     void updateShop(int updateCost)
@@ -74,6 +71,8 @@ public class Shop : MonoBehaviour
         if (player.money >= updateCost)
         {
             level++;
+            income += level * 20;
+            costs += level * 15;
             player.money -= updateCost;
         } else
         {
@@ -86,7 +85,7 @@ public class Shop : MonoBehaviour
     //The managerCost parameter will based on the level of manager the user decide to hire
     void hireManagers(int managerCost, int shopLevel)
     {
-        if (player.money >= managerCost && level == shopLevel)
+        if (player.money >= managerCost && level <= shopLevel)
         {
             player.money -= managerCost;
             Manager manager = new Manager();
