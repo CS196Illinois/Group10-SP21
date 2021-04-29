@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Shop : MonoBehaviour
 {
     /** @managers a list of managers/employees */
@@ -43,27 +44,58 @@ public class Shop : MonoBehaviour
             //set to be 6-10 seconds, should also be affected by the managers and area in future dev
             randomUpdateTime = Random.Range(6, 10);
         }
-        
+
     }
 
-    // return the money to update. Now the amount is based only on costs and level. Should also be affected by the managers.
+    // return the money to update. The moeny is based on the income & cost of shop itself and the manager's ability
     void UpdateMoney()
     {
-        player.money += costs + costs / -1000 * Random.Range(-.1f, level);
+        float managerIncome = 0.0;
+        float managerCost = 0.0;
+        for (int i = 0; i < managers.Length; i ++)
+        {
+            managerIncome += managers[i].getLevel() * managers[i].initialIncome * 100;
+            managerCost += managers[i].getLevel() * managers[i].cost * 50;
+        } 
+        player.money += income + managerIncome - costs - managerCost;
     }
-
-    public Shop()
+    //create a default shop of level 1
+    public Shop(GameClass newshop)
     {
         level = 1;
+        player = newshop;
     }
+    //increase the shop level
+    void updateShop(int updateCost)
+    {
+        if (player.money >= updateCost)
+        {
+            level++;
+            income += level * 20;
+            costs += level * 15;
+            player.money -= updateCost;
+        } else
+        {
+            throw new System.Exception;
+        }
+    }
+   
+
     //Create a new manager and put it into the Manager list. 
     //The managerCost parameter will based on the level of manager the user decide to hire
-    void hireManagers(int managerCost)
+    void hireManagers(int managerCost, int shopLevel)
     {
-        player.money -= managerCost;
-        Manager manager = new Manager();
-        managers.Add(manager);
+        if (player.money >= managerCost && level <= shopLevel)
+        {
+            player.money -= managerCost;
+            Manager manager = new Manager();
+            managers.Add(manager);
+        } else
+        {
+            throw new System.Exception;
+        }
     }
+
 
     void SetManagers(Manager[] m)
     {
