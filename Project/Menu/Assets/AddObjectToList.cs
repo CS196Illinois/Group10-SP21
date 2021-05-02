@@ -11,12 +11,18 @@ public class AddObjectToList : MonoBehaviour
 
     public void AddShop_Click()
     {
-        var copy = Instantiate(itemTemplate);
+        GameObject copy = Instantiate(itemTemplate) as GameObject;
         copy.transform.parent = content.transform;
+        copy.SetActive(true);
+        copy.GetComponent<AddObjectToList>().index = index;
         copy.GetComponentInChildren<Text>().text = ("Shop " + (index + 1).ToString() + " (name)\n Shop Income:\t\t\t Shop Cost: ");
 
       
         index++;
     }
+   public void shop_click()
+   {
+        Debug.Log("Index: " + index.ToString());
+   }
   
 }
