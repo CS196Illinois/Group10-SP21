@@ -16,7 +16,7 @@ public class GameDataScripty : MonoBehaviour
     public void UpgradeLevel()
     {
         
-        if (game.money >= 50)
+        if (game.money >= game.level * 50)
         {
             game.level++;
             game.money -= game.level * 50;
