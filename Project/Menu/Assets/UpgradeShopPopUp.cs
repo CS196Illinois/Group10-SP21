@@ -12,4 +12,5 @@ public class UpgradeShopPopUp : MonoBehaviour
             Panel.SetActive(true);
         }
     }
+
 }

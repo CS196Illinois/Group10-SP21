@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CreateShopScript : MonoBehaviour
 {
+    //public GameClass game;
     public GameObject Panel;
 
     public void OpenPanel()
